@@ -1,0 +1,1 @@
+# week 1 Lecture notes 
