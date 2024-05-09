@@ -107,7 +107,23 @@ legend("topright",col=c("black","red","blue"),
        lty=c(1,1), lwd=c(1,1))
 dev.off()
 
-#
-#
-#
-#
+# plot 4
+library(png)
+png("./plots/plot4.png", width=480, height=480)
+par(mfrow=c(2,2))
+
+# plot 4.1
+plot(powerDT$dateTime, powerDT$Global_active_power, xlab="",ylab="Global Active Power",type="l")
+# plot 4.2
+plot(powerDT$dateTime, powerDT$Voltage, ylab="Voltage", xlab="datetime",type="l")
+# plot 4.3
+plot(powerDT$dateTime, powerDT$Sub_metering_1, xlab="",ylab="Energy Sub metering",type="l")
+lines(powerDT$dateTime, powerDT$Sub_metering_2, col="red")
+lines(powerDT$dateTime, powerDT$Sub_metering_3, col="blue")
+legend("topright",col=c("black","red","blue"),
+       c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"),
+       lty=c(1,1), bty="n", cex=.5)
+#plot 4.4
+plot(powerDT[, dateTime], powerDT[, Global_reactive_power]
+     , type="l", xlab="datetime", ylab="Global_reactive_power")
+dev.off()
